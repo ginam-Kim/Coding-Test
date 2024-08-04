@@ -5,3 +5,7 @@ WHERE SKILL_1 = 'Python'
 OR SKILL_2 = 'Python'
 OR SKILL_3 = 'Python'
 ORDER BY ID;
+
+
+
+# WHERE 'Python' IN (SKILL1, SKILL2, SKILL_3) 가능
