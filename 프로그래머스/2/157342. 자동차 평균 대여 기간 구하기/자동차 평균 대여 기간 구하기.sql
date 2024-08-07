@@ -9,3 +9,6 @@ HAVING
     AVERAGE_DURATION >= 7
 ORDER BY
     AVERAGE_DURATION DESC, CAR_ID DESC;
+
+
+# 대여 기간을 구할 때, END_DATE와 START_DATE의 차이에 +1을 꼭 해줘야함!!!
