@@ -1,5 +1,6 @@
 -- 코드를 작성해주세요
 
+# 마지막 ORDER BY를 TOTAL_DISTANCE로 하면 틀림.(반올림을 한 상태로 정렬하기 때문)
 SELECT 
     ROUTE, 
     CONCAT(ROUND(SUM(D_BETWEEN_DIST),1),'km') TOTAL_DISTANCE, 
