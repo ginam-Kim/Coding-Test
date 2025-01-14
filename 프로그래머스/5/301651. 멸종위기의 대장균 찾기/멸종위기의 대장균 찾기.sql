@@ -1,0 +1,51 @@
+-- 코드를 작성해주세요
+# WITH RECURSIVE, CTE체인
+
+WITH RECURSIVE A AS (
+    SELECT
+        ID, PARENT_ID, 1 AS GENERATION
+    FROM
+        ECOLI_DATA
+    WHERE
+        PARENT_ID IS NULL
+    
+    UNION ALL
+    
+    SELECT
+        B.ID, B.PARENT_ID, GENERATION+1 AS GENERATION
+    FROM
+        ECOLI_DATA B
+    INNER JOIN
+        A
+    WHERE
+        A.ID = B.PARENT_ID
+), CHILD_COUNT AS (
+    SELECT
+        E.ID, COUNT(D.ID) AS COUNT
+    FROM
+        ECOLI_DATA E
+    LEFT JOIN
+        ECOLI_DATA D
+    ON
+        E.ID = D.PARENT_ID
+    GROUP BY
+        E.ID
+)
+
+
+
+SELECT 
+    COUNT(*) COUNT, GENERATION
+FROM
+    A
+JOIN
+    CHILD_COUNT
+ON
+    A.ID = CHILD_COUNT.ID
+WHERE
+    COUNT = 0
+GROUP BY
+    GENERATION
+ORDER BY
+    GENERATION ASC;
+    
