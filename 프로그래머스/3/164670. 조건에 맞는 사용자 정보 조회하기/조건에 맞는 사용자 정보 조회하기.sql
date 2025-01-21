@@ -1,0 +1,17 @@
+-- 코드를 입력하세요
+# 숫자 사이에 하이픈 문자열 삽입하는 방법?
+
+SELECT
+    U.USER_ID, U.NICKNAME, 
+    CONCAT(U.CITY, ' ',U.STREET_ADDRESS1, ' ', U.STREET_ADDRESS2) 전체주소,
+    CONCAT(LEFT(TLNO, 3), '-', MID(TLNO, 4,4), '-', RIGHT(TLNO, 4)) 전화번호
+FROM
+    USED_GOODS_BOARD B
+    JOIN USED_GOODS_USER U
+    ON B.WRITER_ID=U.USER_ID
+GROUP BY
+    B.WRITER_ID
+HAVING
+    COUNT(*)>=3
+ORDER BY
+    USER_ID DESC;
