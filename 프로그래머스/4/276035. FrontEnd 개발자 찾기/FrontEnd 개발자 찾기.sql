@@ -1,0 +1,19 @@
+-- 코드를 작성해주세요
+
+WITH FE AS(
+    SELECT
+        *
+    FROM
+        SKILLCODES
+    WHERE
+        CATEGORY='Front End'
+)
+
+SELECT
+    DISTINCT D.ID, D.EMAIL, D.FIRST_NAME, D.LAST_NAME
+FROM
+    DEVELOPERS D, FE F
+WHERE
+    D.SKILL_CODE & F.CODE > 0
+ORDER BY
+    ID ASC;
