@@ -1,4 +1,5 @@
 -- 코드를 작성해주세요
+# COALESSCE
 
 # SELECT
 #     A.ID, COUNT(B.ID) CHILD_COUNT
@@ -20,4 +21,3 @@ FROM
     ECOLI_DATA A
 ORDER BY
     ID;
-    
