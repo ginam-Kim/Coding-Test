@@ -1,4 +1,6 @@
 -- 코드를 입력하세요
+# 1. left join 사용
+
 SELECT 
     O.ANIMAL_ID, O.NAME
 FROM 
