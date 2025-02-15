@@ -1,4 +1,6 @@
 -- 코드를 입력하세요
+# 1. NOT IN
+# 2. LEFT JOIN
 
 SELECT
     NAME, DATETIME
