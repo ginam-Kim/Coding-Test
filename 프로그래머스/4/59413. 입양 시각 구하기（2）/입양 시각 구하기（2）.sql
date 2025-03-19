@@ -1,0 +1,35 @@
+-- 코드를 입력하세요
+# SELECT @rownum := @rownum + 1 AS HOUR, COUNT(*) COUNT
+# FROM ANIMAL_OUTS, (SELECT @rownum := 0) r 
+
+# GROUP BY HOUR(DATETIME)
+# ORDER BY HOUR;
+
+# # WITH RECURSIE??????? ??????????? 모르겠음
+
+
+WITH RECURSIVE HOURS AS(
+    SELECT 0 AS HOUR
+    
+    UNION ALL
+    
+    SELECT
+        HOUR+1 AS HOUR
+    FROM
+        HOURS
+    WHERE
+        HOUR < 23
+), COUNTS AS(
+    SELECT
+        HOUR(DATETIME) HOUR, COUNT(*) COUNT
+    FROM
+        ANIMAL_OUTS
+    GROUP BY
+        HOUR(DATETIME)
+)
+
+SELECT
+    H.HOUR, IFNULL(COUNT, 0) COUNT
+FROM
+    HOURS H LEFT JOIN COUNTS C
+    ON H.HOUR = C.HOUR
