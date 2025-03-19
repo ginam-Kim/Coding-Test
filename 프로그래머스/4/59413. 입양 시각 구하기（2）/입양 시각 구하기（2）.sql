@@ -1,12 +1,5 @@
 -- 코드를 입력하세요
-# SELECT @rownum := @rownum + 1 AS HOUR, COUNT(*) COUNT
-# FROM ANIMAL_OUTS, (SELECT @rownum := 0) r 
-
-# GROUP BY HOUR(DATETIME)
-# ORDER BY HOUR;
-
-# # WITH RECURSIE??????? ??????????? 모르겠음
-
+# WITH RECURSIVE
 
 WITH RECURSIVE HOURS AS(
     SELECT 0 AS HOUR
