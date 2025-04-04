@@ -1,7 +1,9 @@
 -- 코드를 작성해주세요
+
 # 비트 연산자 & 이용
 # C.GENOTYPE : 자식의 형질
 # P.GENOTYPE : 부모의 형질
+# C.GENOTYPE & P.GENOTYPE >= P.GENOTYPE <- 핵심(부모의 형질을 모두 모두 포함해야하기 때문)
 
 SELECT
     C.ID, C.GENOTYPE GENOTYPE, P.GENOTYPE PARENT_GENOTYPE
