@@ -1,0 +1,31 @@
+-- 코드를 작성해주세요
+
+WITH HR_G AS (
+    SELECT EMP_NO, AVG(SCORE) AS SCORE
+    FROM HR_GRADE
+    GROUP BY EMP_NO
+), HR_GG AS (
+    SELECT 
+        EMP_NO, SCORE, 
+        CASE
+            WHEN SCORE >= 96 THEN 'S'
+            WHEN SCORE >= 90 THEN 'A'
+            WHEN SCORE >= 80 THEN 'B'
+            ELSE 'C'
+        END AS GRADE,
+        CASE
+            WHEN SCORE >= 96 THEN 0.2
+            WHEN SCORE >= 90 THEN 0.15
+            WHEN SCORE >= 80 THEN 0.1
+            ELSE 0
+        END AS PERCENT
+    FROM
+        HR_G
+)
+
+
+SELECT E.EMP_NO, E.EMP_NAME, G.GRADE GRADE, E.SAL*G.PERCENT BONUS
+FROM HR_EMPLOYEES E, HR_GG G
+WHERE E.EMP_NO=G.EMP_NO
+GROUP BY E.EMP_NO, E.EMP_NAME
+ORDER BY E.EMP_NO ASC;
