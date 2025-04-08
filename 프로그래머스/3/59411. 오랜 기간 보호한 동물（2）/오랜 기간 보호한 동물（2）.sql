@@ -1,5 +1,4 @@
 -- 코드를 입력하세요
-
 SELECT
     I.ANIMAL_ID, O.NAME
 FROM
